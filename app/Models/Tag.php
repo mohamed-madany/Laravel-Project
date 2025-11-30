@@ -4,18 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class Tag extends Model
 {
-    protected $table = 'comment';
+    protected $table = 'tag';
     protected $primaryKey = 'id';
     protected $keyType = 'string';
     public $incrementing = false;
-
-    protected $fillable = ['author', 'content', 'post_id'];
+    protected $fillable = ['title'];
     protected $guarded = ['id'];
 
-    public function post()
-    {
-        return $this->belongsTo(Post::class);
+    public function posts(){
+        return $this->belongsToMany(Post::class);
     }
 }

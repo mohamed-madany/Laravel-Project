@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
-use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class CommentController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Comment::cursorPaginate(10); // Eloquent ORM -> Get all Data From DataBase 
+        $data = Tag::cursorPaginate(10); // Eloquent ORM -> Get all Data From DataBase 
 
         // pass the data to the view
-        return view('comment.index', ['comments' => $data, 'pageTitle' => 'Comments']);
+        return view('tag.index', ['tags' => $data, 'pageTitle' => 'Tags']);
     }
+
     /**
      * Show the form for creating a new resource.
      */

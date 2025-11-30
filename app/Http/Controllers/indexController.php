@@ -6,14 +6,8 @@ use Illuminate\Http\Request;
 
 class indexController extends Controller
 {
-    function index(){
+    public function __invoke(Request $request){
         return view('index',["pageTitle" => "Dashboard"]);
     }
 
-    function about(){
-        return view('about',["pageTitle" => "About"]);
-    }
-     function contact(){
-        return view('contact',["pageTitle" => "Contact"]);
-    }
 }

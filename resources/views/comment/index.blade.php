@@ -1,6 +1,6 @@
 <x-layout :title="$pageTitle">
 
-    <h2>Comments Testing</h2>
+    <h1>Comments Testing</h1>
     @foreach ($comments as &$comment )
         <h2>{{ $comment->content }}</h2>
         <h2>{{ $comment->author }}</h2>
