@@ -12,10 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('post_tag', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('post_id')->constrained("post")->cascadeOnDelete();
-            $table->foreignId('tag_id')->constrained("tag")->cascadeOnDelete();
-            $table->timestamps();
+            
+            $table->ulid('post_id');
+            $table->ulid('tag_id');
+
+            $table->foreign('post_id')
+                ->references('id')
+                ->on('post')
+                ->cascadeOnDelete();
+
+            $table->foreign('tag_id')
+                ->references('id')
+                ->on('tag')
+                ->cascadeOnDelete();
+
+            $table->primary(['post_id', 'tag_id']);
         });
     }
 
